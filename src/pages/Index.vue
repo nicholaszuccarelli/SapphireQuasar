@@ -1,11 +1,15 @@
 <template>
-  <q-page class="flex flex-center">
+  <PageLayout title="Overview">
     <img alt="Quasar logo" src="~assets/quasar-logo-full.svg">
-  </q-page>
+  </PageLayout>
 </template>
 
 <script>
+import PageLayout from '../layouts/partials/PageLayout'
+
 export default {
-  name: 'PageIndex'
+  components: {
+    PageLayout
+  }
 }
 </script>

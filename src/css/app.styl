@@ -1,1 +1,73 @@
-// app global css in Stylus form
+.sticky-position {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+#sectionSwitcher {
+  flex: 0 0 60px;
+  width: 60px;
+  background-color: $grey-4;
+
+  .navigation-item {
+    font-size: 2em;
+    text-align: center;
+    border-left: 3px solid transparent;
+
+    &.active {
+      border-left-color: #000;
+    }
+  }
+}
+
+#sectionContent {
+  flex: 1 1 1px;
+  background-color: $grey-2;
+
+  .section-heading {
+    min-height: 0px;
+    text-transform: uppercase;
+    font-weight: 500;
+    opacity: 0.8;
+    letter-spacing: 1px;
+
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+  }
+
+  .section-item {
+    &.active {
+      background-color: $amber-8;
+    }
+
+    .q-icon {
+      color: #000;
+    }
+  }
+}
+
+#pageLayout__header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 1;
+  color: #000;
+
+  &:after {
+    content: '';
+    position: absolute;
+    height: 80px;
+    top: calc(100% + 1px);
+    right: 0;
+    left: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 50% -3%, rgba(0, 0, 0, 0.1), rgba(97, 97, 97, 0) 70%);
+  }
+}
