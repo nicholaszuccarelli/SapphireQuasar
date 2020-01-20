@@ -1,3 +1,20 @@
+// Theming
+@import 'themes/light.scss';
+@import 'themes/dark.scss';
+
+$themes: (
+  light: $lightTheme,
+  dark: $darkTheme
+);
+
+#q-app {
+  @include themify($themes) {
+    background-color: themed('background') !important;
+    color: themed('color') !important;
+  }
+  transition: background-color 0.25s ease;
+}
+
 .sticky-position {
   position: sticky;
   top: 0;
@@ -28,6 +45,10 @@
   flex: 0 0 60px;
   width: 60px;
   background-color: $grey-4;
+  @include themify($themes) {
+    background-color: themed('sidebarNav');
+    transition: background-color 0.25s ease;
+  }
 
   .navigation-item {
     font-size: 2em;
@@ -42,7 +63,10 @@
 
 #sectionContent {
   flex: 1 1 1px;
-  background-color: $grey-2;
+  @include themify($themes) {
+    background-color: themed('sidebarSections');
+    transition: background-color 0.25s ease;
+  }
 
   .section-heading {
     min-height: 0px;
@@ -68,10 +92,13 @@
 }
 
 #pageLayout__header {
-  background-color: #fff;
+  @include themify($themes) {
+    background-color: themed('background');
+    color: themed('color') !important;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
   z-index: 1;
-  padding: 0px $space-sm[x];
-  color: #000;
+  padding: 0px map-get($space-sm, x);
 
   #pageLayout__toolbar {
     height: 70px;
@@ -89,6 +116,9 @@
     right: 0;
     left: 0;
     pointer-events: none;
-    background: radial-gradient(ellipse at 50% -3%, rgba(0, 0, 0, 0.1), rgba(97, 97, 97, 0) 70%);
+    @include themify($themes) {
+      background: themed('headerRadialBackground');
+      transition: background 0.25s ease;
+    }
   }
 }
