@@ -1,6 +1,6 @@
 <template>
   <q-layout container :view="view" @scroll="onScroll">
-    <q-header id="pageLayout__header" class="bg-transparent">
+    <q-header id="pageLayout__header">
       <q-toolbar id="pageLayout__toolbar">
         <q-toolbar-title id="pageLayout__title" class="q-ml-xs">
           <slot name="title" v-if="hasTitleSlot" />
@@ -12,7 +12,7 @@
     </q-header>
 
     <q-page-container>
-      <q-page>
+      <q-page class="q-pa-lg">
         <slot />
       </q-page>
     </q-page-container>

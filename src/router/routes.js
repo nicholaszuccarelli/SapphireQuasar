@@ -5,25 +5,37 @@ import Index from '../pages/Index'
 import Send from '../pages/Send'
 import Settings from '../pages/Settings'
 
-function render (defaultComp, sidebarComp = MainSidebar) {
+function render (defaultComp, sidebarComp = undefined) {
   return {
     default: defaultComp,
     sidebar: sidebarComp
   }
 }
 
+const withPrefix = (prefix, routes) =>
+  routes.map((route) => {
+    route.path = prefix + '/' + route.path
+    return route
+  })
+
 const routes = [
   {
     path: '/',
     component: () => import('layouts/Layout.vue'),
     children: [
+      ...withPrefix('coin', [
+        {
+          path: '',
+          components: render(Index, MainSidebar)
+        },
+        {
+          path: 'send',
+          components: render(Send, MainSidebar)
+        }
+      ]),
       {
-        path: '',
-        components: render(Index)
-      },
-      {
-        path: 'send',
-        components: render(Send)
+        path: 'news',
+        components: render(Settings)
       },
       {
         path: 'settings',

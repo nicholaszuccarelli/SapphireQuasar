@@ -2,8 +2,8 @@
   <div>
     <q-list>
       <SectionHeading title="Wallet" />
-      <SectionItem title="Overview" icon="mdi-currency-usd" path="/" exact />
-      <SectionItem title="Send" icon="mdi-send" path="/send" />
+      <SectionItem title="Overview" icon="mdi-currency-usd" path="/coin" exact />
+      <SectionItem title="Send" icon="mdi-send" path="/coin/send" />
       <SectionItem title="Receive" icon="mdi-download" />
       <SectionItem title="Transactions" icon="mdi-format-list-bulleted" />
 
