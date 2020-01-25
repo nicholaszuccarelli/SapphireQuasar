@@ -32,6 +32,24 @@ $themes: (
   display: inline-block;
 }
 
+.text-body {
+  @include themify($themes) {
+    color: themed('body') !important;
+  }
+}
+
+.news-item {
+  transition: background-color 0.25s ease;
+
+  &:hover {
+    cursor: pointer;
+
+    @include themify($themes) {
+      background-color: themed('sidebarSections') !important;
+    }
+  }
+}
+
 /**
   Page elements
  */
@@ -56,7 +74,9 @@ $themes: (
     border-left: 3px solid transparent;
 
     &.active {
-      border-left-color: #000;
+      @include themify($themes) {
+        border-left-color: themed('color');
+      }
     }
   }
 }
@@ -83,6 +103,8 @@ $themes: (
   .section-item {
     &.active {
       background-color: $amber-8;
+      color: #000;
+      font-weight: 600;
     }
 
     .q-icon {
@@ -98,7 +120,7 @@ $themes: (
     transition: background-color 0.25s ease, color 0.25s ease;
   }
   z-index: 1;
-  padding: 0px map-get($space-sm, x);
+  padding: map-get($space-sm, y) map-get($space-lg, x);
 
   #pageLayout__toolbar {
     height: 70px;

@@ -4,6 +4,7 @@ import SettingsSidebar from '../layouts/sidebars/Settings'
 import Index from '../pages/Index'
 import Send from '../pages/Send'
 import Settings from '../pages/Settings'
+import News from './../pages/News'
 
 function render (defaultComp, sidebarComp = undefined) {
   return {
@@ -35,7 +36,7 @@ const routes = [
       ]),
       {
         path: 'news',
-        components: render(Settings)
+        components: render(News)
       },
       {
         path: 'settings',
